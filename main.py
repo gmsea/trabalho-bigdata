@@ -2,4 +2,6 @@ import pandas as pd
 
 dados = pd.read_csv("dados/clientes.csv")
 
-print(dados)
+subconjunto = dados[["nome", "cidade", "salario"]]
+
+print(subconjunto)
