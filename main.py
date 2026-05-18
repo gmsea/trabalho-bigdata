@@ -1,1 +1,1 @@
-print("Projeto funcionando")
+print("Projeto funcionando")o
