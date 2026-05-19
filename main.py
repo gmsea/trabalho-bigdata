@@ -6,4 +6,6 @@ dados = pd.read_csv(
     engine="python"
 )
 
-print(dados)
+subconjunto = dados[["Duration", "Pulse", "Calories"]]
+
+print(subconjunto)
