@@ -1,18 +1,21 @@
 import pandas as pd
 
-pd.set_option("display.max_rows", 32)
-
 dados = pd.read_csv(
     "dados/dados_atividade.csv",
     sep=";",
     engine="python"
 )
 
-print("DATAFRAME COMPLETO:")
-print(dados.to_string())
+copia_dados = dados.copy()
 
-print("\nPRIMEIRAS 10 LINHAS:")
-print(dados.head(10))
+copia_dados["Date"] = copia_dados["Date"].replace(
+    20201226,
+    "2020/12/26"
+)
 
-print("\nULTIMAS 10 LINHAS:")
-print(dados.tail(10))
+copia_dados["Date"] = pd.to_datetime(
+    copia_dados["Date"],
+    errors="coerce"
+)
+
+print(copia_dados)
