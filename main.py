@@ -1,11 +1,18 @@
 import pandas as pd
 
+pd.set_option("display.max_rows", 32)
+
 dados = pd.read_csv(
     "dados/dados_atividade.csv",
     sep=";",
     engine="python"
 )
 
-subconjunto = dados[["Duration", "Pulse", "Calories"]]
+print("DATAFRAME COMPLETO:")
+print(dados.to_string())
 
-print(subconjunto)
+print("\nPRIMEIRAS 10 LINHAS:")
+print(dados.head(10))
+
+print("\nULTIMAS 10 LINHAS:")
+print(dados.tail(10))
