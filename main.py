@@ -6,13 +6,25 @@ dados = pd.read_csv(
     engine="python"
 )
 
+print("INFORMACOES GERAIS:")
+print(dados.info())
+
+print("\nPRIMEIRAS 10 LINHAS:")
+print(dados.head(10))
+
+print("\nULTIMAS 10 LINHAS:")
+print(dados.tail(10))
+
 copia_dados = dados.copy()
 
 copia_dados["Calories"] = copia_dados["Calories"].fillna(0)
 
+print("\nCALORIES TRATADO:")
+print(copia_dados.to_string())
+
 copia_dados["Date"] = copia_dados["Date"].fillna("1900/01/01")
 
-print("ANTES DA CONVERSAO:")
+print("\nDATE COM 1900/01/01:")
 print(copia_dados.to_string())
 
 copia_dados["Date"] = copia_dados["Date"].replace(
@@ -29,7 +41,10 @@ copia_dados["Date"] = pd.to_datetime(
     copia_dados["Date"]
 )
 
+print("\nDEPOIS DA CONVERSAO:")
+print(copia_dados.to_string())
+
 copia_dados = copia_dados.dropna()
 
-print("\nDEPOIS DA CONVERSAO:")
+print("\nDATAFRAME FINAL LIMPO:")
 print(copia_dados.to_string())
